@@ -5,10 +5,18 @@ import Line from "../../shared/Line";
 import Button from "../../shared/Button";
 import Dot from "../../shared/CityDot";
 import { Lines, Dots } from "./geoCordinates";
+import lotteryMachine from "./lotteryMachine";
 
 const WelcomePage = () => {
   const [showTicket, setShowTicket] = useState();
   const [startingPage, setStartingPage] = useState(true);
+
+  const DrawTwoCards = () => {
+    const firstCard = lotteryMachine.draw();
+    const secondCard = lotteryMachine.draw();
+
+    console.log(`${firstCard} i ${secondCard}`);
+  };
 
   const {
     Main,
@@ -93,7 +101,11 @@ const WelcomePage = () => {
             ))}
             ;
           </CapitalsLayer>
-          <Button margin="-2rem 0 0 1rem" text="losuj dwie karty" />
+          <Button
+            margin="-2rem 0 0 1rem"
+            text="losuj dwie karty"
+            onClick={DrawTwoCards}
+          />
           <Button margin="-2rem 0 0 1rem" text="ułóż trasę" />
         </Map>
       </Content>
