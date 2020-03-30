@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import components from "./styles";
 import Line from "../../shared/Line";
@@ -8,14 +9,25 @@ import { Lines, Dots } from "./geoCordinates";
 import lotteryMachine from "./lotteryMachine";
 
 const WelcomePage = () => {
+  const dispatch = useDispatch();
   const [showTicket, setShowTicket] = useState();
   const [startingPage, setStartingPage] = useState(true);
 
-  const DrawTwoCards = () => {
+  const { blueCards, blackCards, redCards, greenCards } = useSelector(
+    state => state.cardsState
+  );
+
+  console.log(
+    `niebieskich: ${blueCards}, czarnych: ${blackCards}, czerwonych: ${redCards}, zielonych: ${greenCards}`
+  );
+
+  const drawTwoCards = () => {
     const firstCard = lotteryMachine.draw();
     const secondCard = lotteryMachine.draw();
 
     console.log(`${firstCard} i ${secondCard}`);
+
+    dispatch({ type: "ADD_NEW_CARDS", payload: [firstCard, secondCard] });
   };
 
   const {
@@ -104,7 +116,7 @@ const WelcomePage = () => {
           <Button
             margin="-2rem 0 0 1rem"
             text="losuj dwie karty"
-            onClick={DrawTwoCards}
+            onClick={drawTwoCards}
           />
           <Button margin="-2rem 0 0 1rem" text="ułóż trasę" />
         </Map>
