@@ -1,21 +1,6 @@
 import styled from "styled-components";
 
 export default {
-  WelcomePage: styled.div`
-    background-image: url(${process.env.PUBLIC_URL + "/map.jpg"});
-    height: 100%;
-    width: 100%;
-    background-size: 100%;
-    background-position: center;
-    object-fit: contain;
-  `,
-
-  ColorLayer: styled.div`
-    background-color: rgba(40, 40, 41, 0.54);
-    height: 100%;
-    width: 100%;
-  `,
-
   Content: styled.div`
     height: 80%;
     display: flex;

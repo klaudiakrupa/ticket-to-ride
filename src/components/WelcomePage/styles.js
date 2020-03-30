@@ -1,21 +1,6 @@
 import styled from "styled-components";
 
 export default {
-  WelcomePage: styled.div`
-    background-image: url(${process.env.PUBLIC_URL + "/map.jpg"});
-    height: 100%;
-    width: 100%;
-    background-size: 100%;
-    background-position: center;
-    object-fit: contain;
-  `,
-
-  ColorLayer: styled.div`
-    background-color: rgba(40, 40, 41, 0.54);
-    height: 100%;
-    width: 100%;
-  `,
-
   Content: styled.div`
     height: 80%;
     display: flex;
@@ -53,28 +38,6 @@ export default {
     margin: 0 auto;
     height: 15rem;
     justify-content: space-around;
-  `,
-
-  Button: styled.button`
-    background-color: #eaeae9;
-    font-family: "Libre Baskerville", serif;
-    color: #5d5045;
-    font-weight: 700;
-    font-size: 1.2rem;
-    border: none;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-    cursor: pointer;
-    border-radius: 1rem;
-    height: 4.5rem;
-    width: 23rem;
-
-    &: focus {
-      outline: none;
-    }
-
-    &: hover {
-      box-shadow: inset 0 0 13px rgba(0, 0, 0, 1);
-    }
   `,
 
   BottomText: styled.h4`
